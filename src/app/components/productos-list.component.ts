@@ -8,7 +8,10 @@ import { Router, ActivatedRoute, Params } from ' @angular/router/';
 export class ProductosListComponent implements OnInit {
 
   public titulo:string;
-  constructor() {
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
     this.titulo = "Listado de Productos";
 
   ngOnInit() {
