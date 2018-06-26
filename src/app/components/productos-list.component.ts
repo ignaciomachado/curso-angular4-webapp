@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from ' @angular/router/';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'productos-list',
-  templateUrl: '../views/productos.list.component.html'
+  templateUrl: '../views/productos-list.component.html'
 })
 export class ProductosListComponent implements OnInit {
 
@@ -13,9 +13,12 @@ export class ProductosListComponent implements OnInit {
     private _router: Router
   ) {
     this.titulo = "Listado de Productos";
+  }
 
   ngOnInit() {
-    console.log("Se ha cargado el componente home.component.ts");
+    console.log("Se ha cargado el componente productos-list.component.ts");
+
+    //alert(this._productoService.getProductos());
   }
 
 }
