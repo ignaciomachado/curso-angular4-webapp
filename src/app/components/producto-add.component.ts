@@ -12,7 +12,11 @@ export class ProductoAddComponent implements OnInit {
 
   public titulo:string;
   public producto:Producto;
-  constructor() {
+  constructor(
+    private _productoService:ProductoService,
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
     this.titulo = "Crear un nuevo producto";
     this.producto = new Producto(0,'','',0,'');
   }
@@ -23,6 +27,19 @@ export class ProductoAddComponent implements OnInit {
 
   onSubmit(){
     console.log(this.producto);
+    this._productoService.addProducto(this.producto).subscribe(
+      response => {
+        if (response.code == 200){
+          this._router.navigate(['/productos']);
+        }
+        else{
+          alert(response);
+        }
+      },
+      error => {
+        console.log(<any> error);
+      }
+    );
   }
 
 }

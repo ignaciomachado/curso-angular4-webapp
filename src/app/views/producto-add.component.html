@@ -31,6 +31,6 @@
     <input type="file" name="" value="">
     <br />
     <br />
-    <input type="submit" value="{{titulo}}" class="btn btn-success">
+    <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success">
 
 </form>
