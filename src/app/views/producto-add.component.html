@@ -28,7 +28,11 @@
 
     <br />
     <label>Imagen</label>
-    <input type="file" name="" value="">
+    <div *ngIf="isEdit">
+      <img src="http://localhost/curso-angular4-backend/uploads/{{producto.imagen}}" width="60px"/>
+    </div>
+    <input (change)="fileChangeEvent($event)" type="file" name="" value="">
+
     <br />
     <br />
     <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success">

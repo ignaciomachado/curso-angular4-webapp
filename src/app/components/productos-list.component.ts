@@ -21,6 +21,10 @@ export class ProductosListComponent {
 
   ngOnInit() {
     console.log("Se ha cargado el componente productos-list.component.ts");
+    this.getProductos();
+  }
+
+  getProductos(){
     this._productoService.getProductos().subscribe(
       result => {
         if (result.code != 200){
@@ -34,6 +38,22 @@ export class ProductosListComponent {
         console.log(error);
       }
     );
+  }
+
+  onDeleteProducto(id){
+    this._productoService.deleteProducto(id).subscribe(
+      response => {
+        if (response.code == 200){
+          this.getProductos();
+        }
+        else {
+          alert("Error en el Servidor");
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }
