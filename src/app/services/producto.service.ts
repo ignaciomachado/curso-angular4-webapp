@@ -65,7 +65,7 @@ export class ProductoService{
 
   deleteProducto(id){
 
-    return this._http.post(this.url+'/delete/'+id).pipe(map(res => res.json())));
+    return this._http.get(this.url+'/delete/'+id).pipe(map(res => res.json())));
   }
 
 
